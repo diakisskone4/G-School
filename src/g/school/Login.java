@@ -63,8 +63,8 @@ public class Login extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\lenovo\\Desktop\\hh\\G-School.png")); // NOI18N
-        jLabel1.setText("jLabel1");
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/téléchargement (1).png"))); // NOI18N
         jLabel1.setMaximumSize(new java.awt.Dimension(245, 474));
         jLabel1.setMinimumSize(new java.awt.Dimension(345, 474));
 
@@ -147,13 +147,10 @@ public class Login extends javax.swing.JFrame {
                                 .addGap(299, 299, 299)
                                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGap(10, 10, 10)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addGap(43, 43, 43)
-                                        .addComponent(jLabel6))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addGap(10, 10, 10)
                                         .addComponent(jLabel12)
                                         .addGap(117, 117, 117)
                                         .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)

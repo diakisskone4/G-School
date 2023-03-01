@@ -61,7 +61,10 @@ public class GestiondeGSchool extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 255));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\lenovo\\Desktop\\hh\\G-School2.png")); // NOI18N
+        jLabel1.setBackground(new java.awt.Color(51, 255, 255));
+        jLabel1.setForeground(new java.awt.Color(51, 255, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icon acc.png"))); // NOI18N
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
