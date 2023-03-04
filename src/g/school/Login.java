@@ -274,13 +274,12 @@ public class Login extends javax.swing.JFrame {
             if(rs.next()){
                 System.out.println("Connexion effection");
                 JOptionPane.showMessageDialog(this, "Conection effectuer");
+                 GestionGS sd = new GestionGS();
+                 sd.setVisible(true);
             }else{
                 System.err.println("Echect de connexion"); 
-                JOptionPane.showMessageDialog(this, "Accer refuser");
             }
             con.close();
-            GestionGS sd = new GestionGS();
-            sd.setVisible(true);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
