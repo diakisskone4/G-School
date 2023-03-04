@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -263,25 +264,27 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_utilisatActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/g-school","root", "");
-            String sql="SELECT * FROM login where username=? and password=?";
-            PreparedStatement pst= con.prepareStatement(sql);
-            pst.setString(1, utilisat.getText());
-            pst.setString(2, pass.getText());
-            ResultSet rs = pst.executeQuery();
-            if(rs.next()){
-                System.out.println("Connexion effection");
-                JOptionPane.showMessageDialog(this, "Conection effectuer");
-                 GestionGS sd = new GestionGS();
-                 sd.setVisible(true);
-            }else{
-                System.out.println("Echect de connexion"); 
+        if(utilisat.getText().equals("")&& pass.getText().equals("")){
+            JOptionPane.showMessageDialog(rootPane, "Connectez-Vous");
+        }else{
+            try {
+                Class.forName("com.mysql.jdbc.Driver");
+                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/g-school", "root", "");
+                Statement state = con.createStatement();
+                ResultSet result = state.executeQuery("select user,pass from login where user"
+                    + " = '"+utilisat.getText()+"' && pass = '"+pass.getText()+"'");
+                if(result.next()){
+                    GestionGS g = new GestionGS();
+                    g.setVisible(true);
+                    dispose();
+                }else{
+                    JOptionPane.showMessageDialog(rootPane, "Utilisateur et Mot de passe incorrecte");
+                    utilisat.setText("");
+                    pass.setText("");
+                }
+            } catch (Exception ex) {
+                System.out.println(ex.getMessage());
             }
-            con.close();
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
