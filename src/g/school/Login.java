@@ -277,7 +277,7 @@ public class Login extends javax.swing.JFrame {
                  GestionGS sd = new GestionGS();
                  sd.setVisible(true);
             }else{
-                System.err.println("Echect de connexion"); 
+                System.out.println("Echect de connexion"); 
             }
             con.close();
         } catch (Exception e) {
