@@ -263,7 +263,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_utilisatActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       try {
+        try {
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/g-school","root", "");
             String sql="SELECT * FROM login where username=? and password=?";
@@ -275,11 +275,11 @@ public class Login extends javax.swing.JFrame {
                 System.out.println("Connexion effection");
                 JOptionPane.showMessageDialog(this, "Conection effectuer");
             }else{
-                System.err.println("Echect de connexion");
+                System.err.println("Echect de connexion"); 
                 JOptionPane.showMessageDialog(this, "Accer refuser");
             }
             con.close();
-            GestiondeGSchool sd = new GestiondeGSchool();
+            GestionGS sd = new GestionGS();
             sd.setVisible(true);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
