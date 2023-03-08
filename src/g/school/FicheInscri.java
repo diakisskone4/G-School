@@ -439,15 +439,16 @@ public class FicheInscri extends javax.swing.JFrame {
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         int ligne = jTable1.getSelectedRow();
-        Matric.setText(jTable1.getValueAt(ligne, 1).toString());
-        prenom.setText(jTable1.getValueAt(ligne, 2).toString());
-        Nom.setText(jTable1.getValueAt(ligne, 3).toString());
-        sexe.setSelectedItem(jTable1.getValueAt(ligne, 4).toString());
-        Date.setDate((Date)jTable1.getValueAt(ligne, 5));
-        filiere.setText(jTable1.getValueAt(ligne, 6).toString());
-        contact.setText(jTable1.getValueAt(ligne, 7).toString());
-        address.setText(jTable1.getValueAt(ligne, 8).toString());
-        contactT.setText(jTable1.getValueAt(ligne, 9).toString());
+        Matric.setText(jTable1.getValueAt(ligne, 0).toString());
+        prenom.setText(jTable1.getValueAt(ligne, 1).toString());
+        Nom.setText(jTable1.getValueAt(ligne, 2).toString());
+        sexe.setSelectedItem(jTable1.getValueAt(ligne, 3).toString());
+        JTextField jt = ((JTextField)Date.getDateEditor().getUiComponent());
+        jt.setText((String) jTable1.getValueAt(ligne, 4));
+        filiere.setText(jTable1.getValueAt(ligne, 5).toString());
+        contact.setText(jTable1.getValueAt(ligne, 6).toString());
+        address.setText(jTable1.getValueAt(ligne, 7).toString());
+        contactT.setText(jTable1.getValueAt(ligne, 8).toString());
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -455,19 +456,19 @@ public class FicheInscri extends javax.swing.JFrame {
         int colonne = 0;
         try {
             
-            String requete = "UPDATE `fichesi` SET `Prenom`= ?,`Nom`= ?,`Sexe`= ?,`Date`= ?,`Filières`= ?,`Contact`= ?,`Addresse`= ?,`ContactT`= ? WHERE N°Matricule =?";
+            String requete = "UPDATE `fichesi` SET `Prenom`= ?,`Nom`= ?,`Sexe`= ?,`Date`= ?,`Filières`= ?,`Contact`= ?,`Addresse`= ?,`ContactT`= ? WHERE N°Matricule = ?";
             ps = con.prepareStatement(requete);
-            ps.setString(1, Matric.getText());
-            ps.setString(2, prenom.getText());
-            ps.setString(3, Nom.getText());
-            ps.setString(4, sexe.getSelectedItem().toString());            
-//            String id = jTable1.getValueAt(ligne, colonne).toString();
+//            
+            ps.setString(1, prenom.getText());
+            ps.setString(2, Nom.getText());
+            ps.setString(3, sexe.getSelectedItem().toString());            
             String s = ((JTextField)Date.getDateEditor().getUiComponent()).getText();
-            ps.setString(5, s);
-            ps.setString(6, filiere.getText());
-            ps.setString(7, contact.getText());
-            ps.setString(8, address.getText());
-            ps.setString(9, contactT.getText());
+            ps.setString(4, s);
+            ps.setString(5, filiere.getText());
+            ps.setString(6, contact.getText());
+            ps.setString(7, address.getText());
+            ps.setString(8, contactT.getText());
+            ps.setString(9, Matric.getText());
             ps.executeUpdate();
             JOptionPane.showMessageDialog(this, "Modifié avec succès");
            Afficher();
