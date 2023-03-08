@@ -194,9 +194,19 @@ public class FicheInscri extends javax.swing.JFrame {
 
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton3.setText("MODIFIER");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton4.setText("SUPRIMER");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jButton5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton5.setText("IMPRIMER");
@@ -439,6 +449,55 @@ public class FicheInscri extends javax.swing.JFrame {
         address.setText(jTable1.getValueAt(ligne, 8).toString());
         contactT.setText(jTable1.getValueAt(ligne, 9).toString());
     }//GEN-LAST:event_jTable1MouseClicked
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        int ligne = jTable1.getSelectedRow();
+        int colonne = 0;
+        try {
+            
+            String requete = "UPDATE `fichesi` SET `Prenom`= ?,`Nom`= ?,`Sexe`= ?,`Date`= ?,`Filières`= ?,`Contact`= ?,`Addresse`= ?,`ContactT`= ? WHERE N°Matricule =?";
+            ps = con.prepareStatement(requete);
+            ps.setString(1, Matric.getText());
+            ps.setString(2, prenom.getText());
+            ps.setString(3, Nom.getText());
+            ps.setString(4, sexe.getSelectedItem().toString());            
+//            String id = jTable1.getValueAt(ligne, colonne).toString();
+            String s = ((JTextField)Date.getDateEditor().getUiComponent()).getText();
+            ps.setString(5, s);
+            ps.setString(6, filiere.getText());
+            ps.setString(7, contact.getText());
+            ps.setString(8, address.getText());
+            ps.setString(9, contactT.getText());
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(this, "Modifié avec succès");
+           Afficher();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+         try {
+            int ligne = jTable1.getSelectedRow();
+            int colonne = 0;
+            String requete = "DELETE FROM `fichesi` WHERE N°Matricule = ?";
+            ps = con.prepareStatement(requete);
+            String Matric = jTable1.getValueAt(ligne, colonne).toString();
+            ps.setString(1, Matric);
+            
+            int a = JOptionPane.showConfirmDialog(this,
+                    "Voulez-vous supprimer ?","Suppression",
+                    JOptionPane.YES_NO_OPTION);
+            
+            if(a==JOptionPane.OK_OPTION){
+                ps.execute();
+                Afficher();
+            }else{
+              Afficher();
+            } 
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
