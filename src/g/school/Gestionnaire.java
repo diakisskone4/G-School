@@ -255,6 +255,11 @@ public class Gestionnaire extends javax.swing.JFrame {
 
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton2.setText("MODIFIER");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton3.setText("SUPRIMER");
@@ -367,6 +372,30 @@ public class Gestionnaire extends javax.swing.JFrame {
         filiere.setText("");
         semestre.setText("");
     }//GEN-LAST:event_jPanel6MouseClicked
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        int ligne = jTable1.getSelectedRow();
+        int colonne = 0;
+        try {
+            
+            String requete = "UPDATE `gestione` SET `prénom`= ?,`nom`= ?,`date`= ?,`sexe`= ?,`Filières`= ?,`Semestre`= ? WHERE `N°Matri`= ?";
+            ps = con.prepareStatement(requete);
+//            
+            ps.setString(1, prenom.getText());
+            ps.setString(2, nom.getText());           
+            String s = ((JTextField)date.getDateEditor().getUiComponent()).getText();
+            ps.setString(3, s);
+            ps.setString(4, sexe.getSelectedItem().toString());
+            ps.setString(5, filiere.getText());
+            ps.setString(6, semestre.getText());
+            ps.setString(7, Matri.getText());
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(this, "Modifié avec succès");
+           Affi();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
