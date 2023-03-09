@@ -263,6 +263,11 @@ public class Gestionnaire extends javax.swing.JFrame {
 
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton3.setText("SUPRIMER");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton4.setText("ACTUALISER");
@@ -396,6 +401,29 @@ public class Gestionnaire extends javax.swing.JFrame {
             System.out.println(e);
         }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+       try {
+            int ligne = jTable1.getSelectedRow();
+            int colonne = 0;
+            String requete = "DELETE FROM `fichesi` WHERE N°Matricule = ?";
+            ps = con.prepareStatement(requete);
+            String Matri = jTable1.getValueAt(ligne, colonne).toString();
+            ps.setString(1, Matri);
+            
+            int a = JOptionPane.showConfirmDialog(this,
+                    "Voulez-vous supprimer ?","Suppression",
+                    JOptionPane.YES_NO_OPTION);
+            
+            if(a==JOptionPane.OK_OPTION){
+                ps.execute();
+                Affi();
+            }else{
+              Affi();
+            } 
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
