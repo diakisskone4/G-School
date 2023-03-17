@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mer. 01 mars 2023 à 15:59
--- Version du serveur : 10.4.24-MariaDB
--- Version de PHP : 8.1.6
+-- Généré le : ven. 17 mars 2023 à 22:15
+-- Version du serveur : 10.4.27-MariaDB
+-- Version de PHP : 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -21,44 +21,28 @@ SET time_zone = "+00:00";
 -- Base de données : `g-school`
 --
 
--- --------------------------------------------------------
-
 --
--- Structure de la table `login`
+-- Déchargement des données de la table `fichesi`
 --
 
-CREATE TABLE `login` (
-  `Id` int(11) NOT NULL,
-  `username` varchar(10) NOT NULL,
-  `password` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+INSERT INTO `fichesi` (`N°Matricule`, `Prenom`, `Nom`, `Sexe`, `Date`, `Filières`, `Contact`, `Addresse`, `ContactT`) VALUES
+(1, 'Diakis', 'Kone', 'Homme', '20023-03-17', 'Infromat', 72619278, 'FALADIER', 78806484),
+(2, 'HaBi', 'SAMASSA', 'Femme', '17 mars 2023', 'compt', 54772442, 'BAMAKO', 63441232);
+
+--
+-- Déchargement des données de la table `gestione`
+--
+
+INSERT INTO `gestione` (`N°Matri`, `prénom`, `nom`, `date`, `sexe`, `Filières`, `Semestre`) VALUES
+(1, 'Aminata', 'Kone', '2023-03-17', 'Femme', 'math', 'S7'),
+(2, 'fanta', 'habi', '17 mars 2023', 'Femme', 'Geni', 'S6');
 
 --
 -- Déchargement des données de la table `login`
 --
 
-INSERT INTO `login` (`Id`, `username`, `password`) VALUES
-(1, 'Admin', 'root');
-
---
--- Index pour les tables déchargées
---
-
---
--- Index pour la table `login`
---
-ALTER TABLE `login`
-  ADD PRIMARY KEY (`Id`);
-
---
--- AUTO_INCREMENT pour les tables déchargées
---
-
---
--- AUTO_INCREMENT pour la table `login`
---
-ALTER TABLE `login`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+INSERT INTO `login` (`ID`, `user`, `pass`) VALUES
+(1, 'adan', 'admin');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
