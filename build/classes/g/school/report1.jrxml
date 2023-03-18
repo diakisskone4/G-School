@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     fichesi.`N°Matricule` AS fichesi_N°Matricule,
+     fichesi.`Prenom` AS fichesi_Prenom,
+     fichesi.`Nom` AS fichesi_Nom,
+     fichesi.`Sexe` AS fichesi_Sexe,
+     fichesi.`Date` AS fichesi_Date,
+     fichesi.`Filières` AS fichesi_Filières,
+     fichesi.`Contact` AS fichesi_Contact,
+     fichesi.`Addresse` AS fichesi_Addresse,
+     fichesi.`ContactT` AS fichesi_ContactT
+FROM
+     `fichesi` fichesi]]>
+	</queryString>
+	<field name="fichesi_N°Matricule" class="java.lang.Integer"/>
+	<field name="fichesi_Prenom" class="java.lang.String"/>
+	<field name="fichesi_Nom" class="java.lang.String"/>
+	<field name="fichesi_Sexe" class="java.lang.String"/>
+	<field name="fichesi_Date" class="java.lang.String"/>
+	<field name="fichesi_Filières" class="java.lang.String"/>
+	<field name="fichesi_Contact" class="java.lang.Integer"/>
+	<field name="fichesi_Addresse" class="java.lang.String"/>
+	<field name="fichesi_ContactT" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="219" y="0" width="100" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fiche D'inscription]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="25" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="61" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[fichesi_N°Matricule]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="61" y="0" width="61" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[fichesi_Prenom]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="122" y="0" width="61" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[fichesi_Nom]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="183" y="0" width="61" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[fichesi_Sexe]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="244" y="0" width="61" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[fichesi_Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="305" y="0" width="61" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[fichesi_Filières]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="366" y="0" width="61" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[fichesi_Contact]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="427" y="0" width="61" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[fichesi_Addresse]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="488" y="0" width="61" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[fichesi_ContactT]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="24" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="61" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{fichesi_N°Matricule}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="61" y="0" width="61" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{fichesi_Prenom}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="122" y="0" width="61" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{fichesi_Nom}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="183" y="0" width="61" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{fichesi_Sexe}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="244" y="0" width="61" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{fichesi_Date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="305" y="0" width="61" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{fichesi_Filières}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="366" y="0" width="61" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{fichesi_Contact}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="427" y="0" width="61" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{fichesi_Addresse}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="488" y="0" width="61" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{fichesi_ContactT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>
