@@ -282,6 +282,11 @@ public class Gestionnaire extends javax.swing.JFrame {
 
         jButton4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton4.setText("ACTUALISER");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -438,16 +443,22 @@ public class Gestionnaire extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
          try {
-            String sql = "SELECT * FROM `gestione` WHERE "+" LIKE ? ? GROUP BY ID ASC";
+            String sql = "SELECT * FROM `gestione` WHERE `N°Matri`  LIKE ? ?;";
         ps = con.prepareStatement(sql);
+//        ps.setString(1,"N°Matri");
         ps.setString(1,recher.getText());
         ps.setString(2,"%");
         resultat = ps.executeQuery();
         jTable1.setModel(DbUtils.resultSetToTableModel(resultat));
-        recher.setText(jTable1.getRowCount()+" gestione");
+//        recher.setText(jTable1.getRowCount()+" gestione");
         } catch (Exception e) {
+             System.out.println(e);
         }
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        Affi();
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
