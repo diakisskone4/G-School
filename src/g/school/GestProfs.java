@@ -61,6 +61,8 @@ public class GestProfs extends javax.swing.JFrame {
         email2 = new javax.swing.JTextField();
         dat2 = new com.toedter.calendar.JDateChooser();
         sexe2 = new javax.swing.JComboBox<>();
+        jLabel28 = new javax.swing.JLabel();
+        mati2 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -102,6 +104,12 @@ public class GestProfs extends javax.swing.JFrame {
         jLabel27.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel27.setText("Date  recrutement");
 
+        prenom2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                prenom2ActionPerformed(evt);
+            }
+        });
+
         nom2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nom2ActionPerformed(evt);
@@ -127,50 +135,58 @@ public class GestProfs extends javax.swing.JFrame {
         });
 
         sexe2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Homme", "Femme" }));
+        sexe2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sexe2ActionPerformed(evt);
+            }
+        });
+
+        jLabel28.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel28.setText("Matières");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addGap(17, 17, 17)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel21)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel27)
-                            .addComponent(jLabel26))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jLabel28)
+                            .addComponent(jLabel26)
+                            .addComponent(jLabel27))
+                        .addGap(27, 27, 27)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(email2)
-                            .addComponent(dat2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(jLabel25)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
-                        .addComponent(telep2, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
+                            .addComponent(dat2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(mati2)))
+                    .addComponent(jLabel20, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel5Layout.createSequentialGroup()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel24)
                             .addComponent(jLabel23)
                             .addComponent(jLabel22)
-                            .addComponent(jLabel20))
-                        .addGap(67, 67, 67)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(id2)
-                            .addComponent(addr2)
-                            .addComponent(prenom2)
-                            .addComponent(nom2)
-                            .addComponent(sexe2, 0, 168, Short.MAX_VALUE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel21)
+                            .addComponent(jLabel24)
+                            .addComponent(jLabel25))
+                        .addGap(77, 77, 77)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(nom2, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(prenom2, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(sexe2, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(addr2, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(telep2)
+                            .addComponent(id2))))
+                .addGap(38, 38, 38))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(45, 45, 45)
+                .addGap(25, 25, 25)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel20)
                     .addComponent(id2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
+                .addGap(30, 30, 30)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel21)
                     .addComponent(nom2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -178,27 +194,31 @@ public class GestProfs extends javax.swing.JFrame {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel22)
                     .addComponent(prenom2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
+                .addGap(29, 29, 29)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel23)
                     .addComponent(sexe2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(41, 41, 41)
+                .addGap(33, 33, 33)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel24)
                     .addComponent(addr2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(41, 41, 41)
+                .addGap(35, 35, 35)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel25)
                     .addComponent(telep2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(36, 36, 36)
+                .addGap(32, 32, 32)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel26)
                     .addComponent(email2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(48, 48, 48)
+                .addGap(30, 30, 30)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel28)
+                    .addComponent(mati2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel27)
                     .addComponent(dat2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -209,7 +229,7 @@ public class GestProfs extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addGap(1, 1, 1)
                 .addComponent(jLabel1)
-                .addGap(0, 247, Short.MAX_VALUE))
+                .addGap(0, 264, Short.MAX_VALUE))
             .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
@@ -308,7 +328,7 @@ public class GestProfs extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
                         .addGap(1, 1, 1)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(21, 21, 21)
@@ -341,7 +361,7 @@ public class GestProfs extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        try {
             String h = ((JTextField)dat2.getDateEditor().getUiComponent()).getText();
-            String sql = "INSERT INTO `gestionp`(`ID`, `nom`, `prenom`, `Sexe`, `address`, `telephone`, `email`, `date`) VALUES (?,?,?,?,?,?,?,?)";
+            String sql = "INSERT INTO `gestionp`(`ID`, `nom`, `prenom`, `Sexe`, `address`, `telephone`, `email`,`Matière`, `date`) VALUES (?,?,?,?,?,?,?,?,?)";
             ps = con.prepareStatement(sql);
             ps.setString(1, id2.getText());
             ps.setString(2, nom2.getText());
@@ -350,7 +370,8 @@ public class GestProfs extends javax.swing.JFrame {
             ps.setString(5, addr2.getText());
             ps.setString(6, telep2.getText());
             ps.setString(7, email2.getText());
-            ps.setString(8, h);
+            ps.setString(8, mati2.getText());
+            ps.setString(9, h);
             ps.executeUpdate();
             JOptionPane.showMessageDialog(this, "Ajouté avec succès");
              affi();
@@ -360,19 +381,58 @@ public class GestProfs extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        
+         int lign6 = jTable1.getSelectedRow();
+        int colon = 0;
+        try {
+            
+            String requete = "UPDATE `gestionp` SET `nom`= ?,`prenom`= ?,`Sexe`= ?,`address`= ?,`telephone`= ?,`email`= ?,`Matière`= ?,`date`= ? WHERE `ID`= ?";
+            ps = con.prepareStatement(requete);     
+            ps.setString(1, nom2.getText());
+            ps.setString(2, prenom2.getText());           
+            ps.setString(3, sexe2.getSelectedItem().toString());
+            ps.setString(4, addr2.getText());
+            ps.setString(5, telep2.getText());
+            ps.setString(6, email2.getText());
+            String e = ((JTextField)dat2.getDateEditor().getUiComponent()).getText();
+            ps.setString(7, e);
+            ps.setString(8, id2.getText());
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(this, "Modifié avec succès");
+           affi();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-      
+       try {
+            int ligne = jTable1.getSelectedRow();
+            int colonne = 0;
+            String requete = "DELETE FROM `gestionp` WHERE ID = ?";
+            ps = con.prepareStatement(requete);
+            String Id = jTable1.getValueAt(ligne, colonne).toString();
+            ps.setString(1, Id);
+            
+            int a = JOptionPane.showConfirmDialog(this,
+                    "Voulez-vous supprimer ?","Suppression",
+                    JOptionPane.YES_NO_OPTION);
+            
+            if(a==JOptionPane.OK_OPTION){
+                ps.execute();
+                affi();
+            }else{
+              affi();
+            } 
+        } catch (Exception e) {
+        }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        
+        affi();
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-         int ligne = jTable1.getSelectedRow();
+        int ligne = jTable1.getSelectedRow();
         id2.setText(jTable1.getValueAt(ligne, 0).toString());
         nom2.setText(jTable1.getValueAt(ligne, 1).toString());
         prenom2.setText(jTable1.getValueAt(ligne, 2).toString());
@@ -380,8 +440,9 @@ public class GestProfs extends javax.swing.JFrame {
         addr2.setText(jTable1.getValueAt(ligne, 4).toString());
         telep2.setText(jTable1.getValueAt(ligne, 5).toString());
         email2.setText(jTable1.getValueAt(ligne, 6).toString());
-        JTextField j = ((JTextField)dat2.getDateEditor().getUiComponent());
-        j.setText((String) jTable1.getValueAt(ligne, 7));
+        mati2.setText(jTable1.getValueAt(ligne, 7).toString());
+        JTextField z = ((JTextField)dat2.getDateEditor().getUiComponent());
+        z.setText((String) jTable1.getValueAt(ligne, 8));
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void nom2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nom2ActionPerformed
@@ -399,6 +460,14 @@ public class GestProfs extends javax.swing.JFrame {
     private void email2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_email2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_email2ActionPerformed
+
+    private void prenom2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prenom2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_prenom2ActionPerformed
+
+    private void sexe2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sexe2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_sexe2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -481,6 +550,7 @@ public class GestProfs extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -495,6 +565,7 @@ public class GestProfs extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTextField mati2;
     private javax.swing.JTextField nom;
     private javax.swing.JTextField nom1;
     private javax.swing.JTextField nom2;
