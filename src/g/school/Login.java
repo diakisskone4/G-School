@@ -5,6 +5,8 @@
  */
 package g.school;
 
+import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.year;
+import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.year;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -12,6 +14,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import java.time.Year;
 
 /**
  *
@@ -296,7 +299,12 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_passMouseClicked
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
+        int currentYear = Year.now().getValue();
+        int startYear = 2022;
+        int endYear = 2023;
+        for (int year = startYear; year <= endYear; year++) {
+            System.out.println("");
+        }
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     /**

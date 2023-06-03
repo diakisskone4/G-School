@@ -436,7 +436,7 @@ public class GestProfs extends javax.swing.JFrame {
         id2.setText(jTable1.getValueAt(ligne, 0).toString());
         nom2.setText(jTable1.getValueAt(ligne, 1).toString());
         prenom2.setText(jTable1.getValueAt(ligne, 2).toString());
-        sexe.setSelectedItem(jTable1.getValueAt(ligne, 3).toString());
+        sexe2.setSelectedItem(jTable1.getValueAt(ligne, 3).toString());
         addr2.setText(jTable1.getValueAt(ligne, 4).toString());
         telep2.setText(jTable1.getValueAt(ligne, 5).toString());
         email2.setText(jTable1.getValueAt(ligne, 6).toString());
